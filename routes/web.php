@@ -30,7 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/roles', [RoleContoller::class, 'index'])->name('roles.index');
     Route::get('/roles/create', [RoleContoller::class, 'create'])->name('roles.create');
     Route::post('/roles', [RoleContoller::class, 'store'])->name('roles.store');
-    
+    Route::get('/roles/{id}/edit', [RoleContoller::class, 'edit'])->name('roles.edit');
+    Route::post('/roles/{id}', [RoleContoller::class, 'update'])->name('roles.update');
+    Route::delete('/roles', [RoleContoller::class, 'destroy'])->name('roles.destroy');
+
 });
 
 require __DIR__.'/auth.php';
